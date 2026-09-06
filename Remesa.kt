@@ -2,7 +2,6 @@ fun main()
 {
     println("=== PROBLEMA DE REMESAS ===")
 
-    // Lista de montos a probar (puedes agregar o quitar valores)
     val montos = listOf(1000.0, 1500.0, 20000.0, 500.0)
 
     for (t in montos)
@@ -10,7 +9,6 @@ fun main()
         val itf = calcularITF(t)
         val mr = calcularMontoRemesa(t)
         val comision = calcularComision(mr)
-
         println("-------------------------------")
         println("Monto total (T): " + t)
         println("ITF: " + itf)
@@ -18,14 +16,10 @@ fun main()
         println("Monto de remesa (mr): " + mr)
     }
 }
-
-// Calcula el ITF: 0.005% del monto total
 fun calcularITF(t: Double): Double
 {
     return t * 0.00005
 }
-
-// Calcula la comision segun el monto de remesa (mr)
 fun calcularComision(mr: Double): Double
 {
     if (mr <= 1000)
@@ -35,9 +29,6 @@ fun calcularComision(mr: Double): Double
     else
         return mr * 0.015
 }
-
-// Calcula el monto de remesa (mr) a partir del total (T)
-// Se prueba cada formula hasta encontrar la que calza con su propio rango
 fun calcularMontoRemesa(t: Double): Double
 {
     val itf = calcularITF(t)
